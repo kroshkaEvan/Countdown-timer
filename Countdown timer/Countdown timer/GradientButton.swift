@@ -53,4 +53,16 @@ class GradientButton: UIButton {
         layer.shadowOpacity = 3.0
         layer.cornerRadius = cornerRadius
     }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            let xScale : CGFloat = isHighlighted ? 0.925 : 1.0
+            let yScale : CGFloat = isHighlighted ? 0.95 : 1.0
+            UIView.animate(withDuration: 0.1) {
+                let transformation = CGAffineTransform(scaleX: xScale,
+                                                       y: yScale)
+                self.transform = transformation
+            }
+        }
+    }
 }
