@@ -136,6 +136,8 @@ class TimerStackView: UIStackView {
                                           timeFormat: .minute)
             secondLabel.text = getTimeString(time: timeInterval,
                                           timeFormat: .second)
+            guard let text = secondLabel.text else {return}
+            addCubeAnimation(label: secondLabel, text: text, direction: .negative)
         }
     }
     
@@ -151,6 +153,41 @@ class TimerStackView: UIStackView {
         case .second:
             return String(format:"%02i", Int(time) % 60)
         }
+    }
+    
+    private func addCubeAnimation(label: UILabel,
+                                  text: String,
+                                  direction: AnimationDirection) {
+        let cubeLabel = UILabel(frame: label.frame)
+        cubeLabel.text = text
+        cubeLabel.font = label.font
+        cubeLabel.textAlignment = label.textAlignment
+        cubeLabel.textColor = label.textColor
+        cubeLabel.backgroundColor = label.backgroundColor
+        
+        let auxLabelOffset = CGFloat(direction.rawValue) *
+        label.frame.size.height/2.0
+        
+        cubeLabel.transform = CGAffineTransform(translationX: 0.0,
+                                               y: auxLabelOffset)
+            .scaledBy(x: 1.0, y: 0.1)
+        
+        label.superview?.addSubview(cubeLabel)
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
+                       options: .curveEaseOut,
+                       animations: {
+            cubeLabel.transform = .identity
+            label.transform = CGAffineTransform(translationX: 0.0,
+                                                y: -auxLabelOffset)
+                .scaledBy(x: 1.0, y: 0.1)
+            
+        },completion: { _ in
+            label.transform = .identity
+            label.text = cubeLabel.text
+            cubeLabel.removeFromSuperview()
+        })
     }
 }
 

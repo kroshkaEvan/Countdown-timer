@@ -8,8 +8,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    private var seconds = 86400
-    private var isTimerRunning = false
     
     private lazy var activateButton: GradientButton = {
         let button = GradientButton()
@@ -26,7 +24,6 @@ class MainViewController: UIViewController {
         activateButton.addTarget(self,
                                  action: #selector(didTapStop),
                                  for: .touchUpInside)
-
         setupLayout()
     }
     
