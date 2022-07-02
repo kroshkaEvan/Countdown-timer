@@ -93,6 +93,7 @@ class TimerStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        startTimer()
         setupStackViewLayout()
     }
     
@@ -111,6 +112,45 @@ class TimerStackView: UIStackView {
         }
         
         distribution = .equalSpacing
+    }
+    
+    private func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 1,
+                             target: self,
+                             selector: (#selector(run)),
+                             userInfo: nil,
+                             repeats: true)
+    }
+    
+    @objc func run() {
+        if seconds < 1 {
+            timer.invalidate()
+        } else {
+            seconds -= 1
+            let timeInterval = TimeInterval(seconds)
+            dayLabel.text = getTimeString(time: timeInterval,
+                                          timeFormat: .day)
+            hourLabel.text = getTimeString(time: timeInterval,
+                                          timeFormat: .hour)
+            minuteLabel.text = getTimeString(time: timeInterval,
+                                          timeFormat: .minute)
+            secondLabel.text = getTimeString(time: timeInterval,
+                                          timeFormat: .second)
+        }
+    }
+    
+    private func getTimeString(time: TimeInterval,
+                               timeFormat: TimeFormat) -> String {
+        switch timeFormat {
+        case .day:
+            return String(format:"%02i", Int(time) / 86400)
+        case .hour:
+            return String(format:"%02i", Int(time) / 3600)
+        case .minute:
+            return String(format:"%02i", Int(time) / 60 % 60)
+        case .second:
+            return String(format:"%02i", Int(time) % 60)
+        }
     }
 }
 
