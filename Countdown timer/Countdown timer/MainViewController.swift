@@ -9,6 +9,13 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    private lazy var appleMusicImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "music")
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
     private lazy var activateButton: GradientButton = {
         let button = GradientButton()
         button.setTitle("ACTIVATE OFFER", for: .normal)
@@ -28,16 +35,30 @@ class MainViewController: UIViewController {
     }
     
     private func setupLayout() {
-        [timerStackView, activateButton].forEach { view.addSubview($0) }
+        [timerStackView, activateButton, appleMusicImage].forEach { view.addSubview($0) }
         view.backgroundColor = .black
         timerStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                               leading: nil,
                               bottom: nil,
-                              trailing: view.trailingAnchor,
+                              trailing: view.safeAreaLayoutGuide.trailingAnchor,
                               padding: .init(top: 10, left: 0,
                                              bottom: 0, right: 30),
                               size: .init(width: 280, height: 41))
-        activateButton.centerInSuperview(size: .init(width: 300, height: 63))
+        activateButton.anchor(top: timerStackView.bottomAnchor,
+                              leading: nil,
+                              bottom: nil,
+                              trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                              padding: .init(top: 100, left: 0,
+                                             bottom: 0, right: 20),
+                              size: .init(width: 300, height: 63))
+        appleMusicImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        appleMusicImage.anchor(top: nil,
+                               leading: view.safeAreaLayoutGuide.leadingAnchor,
+                               bottom: nil,
+                               trailing: nil,
+                               padding: .init(top: 0, left: 20,
+                                              bottom: 0, right: 30),
+                               size: .init(width: 300, height: 170))
     }
     
     @objc func didTapStop() {
