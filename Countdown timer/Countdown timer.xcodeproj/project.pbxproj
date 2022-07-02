@@ -12,6 +12,8 @@
 		BCD301482870CB3400D9C880 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301472870CB3400D9C880 /* MainViewController.swift */; };
 		BCD3014D2870CB3800D9C880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD3014C2870CB3800D9C880 /* Assets.xcassets */; };
 		BCD301502870CB3800D9C880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD3014E2870CB3800D9C880 /* LaunchScreen.storyboard */; };
+		BCD301582870CDED00D9C880 /* TimerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301572870CDED00D9C880 /* TimerStackView.swift */; };
+		BCD3015B2870CE9800D9C880 /* UIView + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3015A2870CE9800D9C880 /* UIView + Constraints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		BCD3014C2870CB3800D9C880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD3014F2870CB3800D9C880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCD301512870CB3800D9C880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCD301572870CDED00D9C880 /* TimerStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStackView.swift; sourceTree = "<group>"; };
+		BCD3015A2870CE9800D9C880 /* UIView + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Constraints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		BCD301422870CB3400D9C880 /* Countdown timer */ = {
 			isa = PBXGroup;
 			children = (
+				BCD301592870CE6500D9C880 /* Exstensions */,
 				BCD301432870CB3400D9C880 /* AppDelegate.swift */,
 				BCD301452870CB3400D9C880 /* SceneDelegate.swift */,
 				BCD301472870CB3400D9C880 /* MainViewController.swift */,
 				BCD3014C2870CB3800D9C880 /* Assets.xcassets */,
 				BCD3014E2870CB3800D9C880 /* LaunchScreen.storyboard */,
 				BCD301512870CB3800D9C880 /* Info.plist */,
+				BCD301572870CDED00D9C880 /* TimerStackView.swift */,
 			);
 			path = "Countdown timer";
+			sourceTree = "<group>";
+		};
+		BCD301592870CE6500D9C880 /* Exstensions */ = {
+			isa = PBXGroup;
+			children = (
+				BCD3015A2870CE9800D9C880 /* UIView + Constraints.swift */,
+			);
+			path = Exstensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD301482870CB3400D9C880 /* MainViewController.swift in Sources */,
+				BCD301582870CDED00D9C880 /* TimerStackView.swift in Sources */,
+				BCD3015B2870CE9800D9C880 /* UIView + Constraints.swift in Sources */,
 				BCD301442870CB3400D9C880 /* AppDelegate.swift in Sources */,
 				BCD301462870CB3400D9C880 /* SceneDelegate.swift in Sources */,
 			);
