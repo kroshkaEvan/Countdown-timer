@@ -11,11 +11,11 @@ let blueButtonColor = UIColor.rgb(red: 65, green: 69, blue: 152)
 let pinkButtonColor = UIColor.rgb(red: 234, green: 72, blue: 187)
 
 class GradientButton: UIButton {
-    let gradientColors : [UIColor]
+    let gradientColors: [UIColor]
     let shadowColor: UIColor
     let cornerRadius: CGFloat
-    let startPoint : CGPoint
-    let endPoint : CGPoint
+    let startPoint: CGPoint
+    let endPoint: CGPoint
 
     required init(gradientColors: [UIColor] = [blueButtonColor, pinkButtonColor],
                   shadowColor: UIColor = pinkButtonColor,

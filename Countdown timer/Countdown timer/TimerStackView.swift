@@ -11,41 +11,29 @@ class TimerStackView: UIStackView {
     
     private lazy var dayLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .darkGray
         label.text = "01"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.textAlignment = .center
+        label.addTimeLabel()
         return label
     }()
     
     private lazy var hourLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .darkGray
         label.text = "00"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.textAlignment = .center
+        label.addTimeLabel()
         return label
     }()
     
     private lazy var minuteLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .darkGray
         label.text = "00"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.textAlignment = .center
+        label.addTimeLabel()
         return label
     }()
     
     private lazy var secondLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .darkGray
         label.text = "00"
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.textAlignment = .center
+        label.addTimeLabel()
         return label
     }()
     
@@ -61,24 +49,24 @@ class TimerStackView: UIStackView {
         return view
     }
     
-    private lazy var colonLabel: UILabel = {
+    private lazy var firstColonLabel: UILabel = {
         let label = UILabel()
         label.text = ":"
-        label.textColor = .white
+        label.addTimeLabel()
         return label
     }()
     
-    private lazy var colonLabel2: UILabel = {
+    private lazy var secondColonLabel: UILabel = {
         let label = UILabel()
         label.text = ":"
-        label.textColor = .white
+        label.addTimeLabel()
         return label
     }()
     
-    private lazy var colonLabel3: UILabel = {
+    private lazy var thirdColonLabel: UILabel = {
         let label = UILabel()
         label.text = ":"
-        label.textColor = .white
+        label.addTimeLabel()
         return label
     }()
     
@@ -106,7 +94,7 @@ class TimerStackView: UIStackView {
             addArrangedSubview(view)
         }
         
-        [colonLabel, colonLabel2, colonLabel3].forEach { view in
+        [firstColonLabel, secondColonLabel, thirdColonLabel].forEach { view in
             insertArrangedSubview(view, at: index)
             index += 2
         }
@@ -116,78 +104,30 @@ class TimerStackView: UIStackView {
     
     private func startTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 1,
-                             target: self,
-                             selector: (#selector(run)),
-                             userInfo: nil,
-                             repeats: true)
+                                          target: self,
+                                          selector: (#selector(run)),
+                                          userInfo: nil,
+                                          repeats: true)
     }
-    
+        
     @objc func run() {
         if seconds < 1 {
             timer.invalidate()
         } else {
             seconds -= 1
             let timeInterval = TimeInterval(seconds)
-            dayLabel.text = getTimeString(time: timeInterval,
-                                          timeFormat: .day)
-            hourLabel.text = getTimeString(time: timeInterval,
-                                          timeFormat: .hour)
-            minuteLabel.text = getTimeString(time: timeInterval,
-                                          timeFormat: .minute)
-            secondLabel.text = getTimeString(time: timeInterval,
-                                          timeFormat: .second)
-            guard let text = secondLabel.text else {return}
-            addCubeAnimation(label: secondLabel, text: text, direction: .negative)
+            dayLabel.getTimeString(time: timeInterval,
+                                   timeFormat: .day)
+            hourLabel.getTimeString(time: timeInterval,
+                                    timeFormat: .hour)
+            minuteLabel.getTimeString(time: timeInterval,
+                                      timeFormat: .minute)
+            secondLabel.getTimeString(time: timeInterval,
+                                      timeFormat: .second)
+            //            guard let text = secondLabel.text else {return}
+            //            addCubeAnimation(label: secondLabel, text: text, direction: .negative)
+//                        secondLabel.addCubeAnimation(direction: .negative)
         }
-    }
-    
-    private func getTimeString(time: TimeInterval,
-                               timeFormat: TimeFormat) -> String {
-        switch timeFormat {
-        case .day:
-            return String(format:"%02i", Int(time) / 86400)
-        case .hour:
-            return String(format:"%02i", Int(time) / 3600)
-        case .minute:
-            return String(format:"%02i", Int(time) / 60 % 60)
-        case .second:
-            return String(format:"%02i", Int(time) % 60)
-        }
-    }
-    
-    private func addCubeAnimation(label: UILabel,
-                                  text: String,
-                                  direction: AnimationDirection) {
-        let cubeLabel = UILabel(frame: label.frame)
-        cubeLabel.text = text
-        cubeLabel.font = label.font
-        cubeLabel.textAlignment = label.textAlignment
-        cubeLabel.textColor = label.textColor
-        cubeLabel.backgroundColor = label.backgroundColor
-        
-        let auxLabelOffset = CGFloat(direction.rawValue) *
-        label.frame.size.height/2.0
-        
-        cubeLabel.transform = CGAffineTransform(translationX: 0.0,
-                                               y: auxLabelOffset)
-            .scaledBy(x: 1.0, y: 0.1)
-        
-        label.superview?.addSubview(cubeLabel)
-        
-        UIView.animate(withDuration: 0.5,
-                       delay: 0.0,
-                       options: .curveEaseOut,
-                       animations: {
-            cubeLabel.transform = .identity
-            label.transform = CGAffineTransform(translationX: 0.0,
-                                                y: -auxLabelOffset)
-                .scaledBy(x: 1.0, y: 0.1)
-            
-        },completion: { _ in
-            label.transform = .identity
-            label.text = cubeLabel.text
-            cubeLabel.removeFromSuperview()
-        })
     }
 }
 
