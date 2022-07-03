@@ -13,7 +13,7 @@ class GradientButton: UIButton {
     let cornerRadius: CGFloat
     let startPoint: CGPoint
     let endPoint: CGPoint
-
+    
     required init(gradientColors: [UIColor] = [Constants.Color.blueButtonColor,
                                                Constants.Color.pinkButtonColor],
                   shadowColor: UIColor = Constants.Color.pinkButtonColor,
@@ -25,10 +25,9 @@ class GradientButton: UIButton {
         self.cornerRadius = cornerRadius
         self.startPoint = startPoint
         self.endPoint = endPoint
-
         super.init(frame: .zero)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,7 +43,7 @@ class GradientButton: UIButton {
         gradientLayer.endPoint = endPoint
         gradientLayer.cornerRadius = cornerRadius
         layer.insertSublayer(gradientLayer, at: 0)
-
+        
         layer.shadowColor = shadowColor.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 3)
         layer.shadowRadius = cornerRadius

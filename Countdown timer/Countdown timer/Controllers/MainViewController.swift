@@ -66,10 +66,12 @@ class MainViewController: UIViewController {
         return label
     }()
     
+    private lazy var alertView = AlertView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activateButton.addTarget(self,
-                                 action: #selector(didTapStop),
+                                 action: #selector(didTapStopTimer),
                                  for: .touchUpInside)
         setupLayout()
     }
@@ -122,8 +124,34 @@ class MainViewController: UIViewController {
                                            bottom: 30, right: 20))
     }
     
-    @objc func didTapStop() {
+    private func getStopedTimeString() -> String {
+        let zeroLabel = "00"
+        let colonLabel = ":"
+        var timeLabel = ""
+        if timerStackView.dayLabel.text != zeroLabel {
+            timeLabel += "01:00:00:00"
+        } else {
+            if let hourLabel = timerStackView.hourLabel.text,
+               let minuteLabel = timerStackView.minuteLabel.text,
+               let secondLabel = timerStackView.secondLabel.text {
+                guard hourLabel == zeroLabel else
+                { timeLabel += hourLabel + colonLabel + minuteLabel + colonLabel + secondLabel;
+                    return timeLabel }
+                guard minuteLabel == zeroLabel else
+                { timeLabel += minuteLabel + colonLabel + secondLabel;
+                    return timeLabel }
+                guard secondLabel == zeroLabel else
+                { timeLabel += secondLabel;
+                    return timeLabel }
+            }}
+        return timeLabel
+    }
+    
+    @objc func didTapStopTimer() {
         timerStackView.timer.invalidate()
+        view.addSubview(alertView)
+        alertView.fillSuperview()
+        alertView.timeActivatedLabel.text = "Offer activated at \(self.getStopedTimeString())"
     }
 }
 

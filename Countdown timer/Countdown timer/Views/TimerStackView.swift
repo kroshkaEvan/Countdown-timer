@@ -9,28 +9,28 @@ import UIKit
 
 class TimerStackView: UIStackView {
     
-    private lazy var dayLabel: UILabel = {
+    lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.text = "01"
         label.addTimeLabel()
         return label
     }()
     
-    private lazy var hourLabel: UILabel = {
+    lazy var hourLabel: UILabel = {
         let label = UILabel()
         label.text = "00"
         label.addTimeLabel()
         return label
     }()
     
-    private lazy var minuteLabel: UILabel = {
+    lazy var minuteLabel: UILabel = {
         let label = UILabel()
         label.text = "00"
         label.addTimeLabel()
         return label
     }()
     
-    private lazy var secondLabel: UILabel = {
+    lazy var secondLabel: UILabel = {
         let label = UILabel()
         label.text = "00"
         label.addTimeLabel()
@@ -74,7 +74,7 @@ class TimerStackView: UIStackView {
         let timer = Timer()
         return timer
     }()
-        
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         startTimer()
@@ -87,7 +87,7 @@ class TimerStackView: UIStackView {
     
     private func setupStackViewLayout() {
         var index = 1
-
+        
         labelSubviews.forEach { view in
             addArrangedSubview(view)
         }
@@ -106,7 +106,7 @@ class TimerStackView: UIStackView {
                                           userInfo: nil,
                                           repeats: true)
     }
-        
+    
     @objc func run() {
         if TimerTime.allTime < 1 {
             timer.invalidate()
@@ -117,7 +117,7 @@ class TimerStackView: UIStackView {
             hourLabel.addCubeAnimation(time: TimerTime.getTimeIntHours())
             minuteLabel.addCubeAnimation(time: TimerTime.getTimeIntMinutes())
             secondLabel.addCubeAnimation(time: TimerTime.getTimeIntSeconds())
-
+            
             dayLabel.getTimeString(time: TimerTime.getTimeIntDay())
             hourLabel.getTimeString(time: TimerTime.getTimeIntHours())
             minuteLabel.getTimeString(time: TimerTime.getTimeIntMinutes())

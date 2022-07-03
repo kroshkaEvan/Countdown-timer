@@ -12,6 +12,7 @@ class Constants {
         static let blueButtonColor = UIColor.rgb(red: 65, green: 69, blue: 152)
         static let pinkButtonColor = UIColor.rgb(red: 234, green: 72, blue: 187)
         static let grayTimerViewColor = UIColor.rgb(red: 43, green: 43, blue: 43)
+        static let blueAlertViewColor = UIColor.rgb(red: 0, green: 15, blue: 78)
     }
 }
 

@@ -30,4 +30,21 @@ extension UILabel {
             layer.add(animationTransition, forKey: CATransitionType.push.rawValue)
         }
     }
+
+    func addShadow(font: UIFont,
+                   shadowBlurRadius: CGFloat,
+                   shadowColor: UIColor,
+                   foregroundColor: UIColor) {
+     let shadow = NSShadow()
+     shadow.shadowColor = shadowColor
+     shadow.shadowBlurRadius = shadowBlurRadius
+     let attributes: [NSAttributedString.Key: Any] = [
+         .font: font,
+         .foregroundColor: foregroundColor,
+         .shadow: shadow
+     ]
+     let attributedText = NSAttributedString(string: text ?? "", attributes: attributes)
+     self.attributedText = attributedText
+ }
+    
 }
