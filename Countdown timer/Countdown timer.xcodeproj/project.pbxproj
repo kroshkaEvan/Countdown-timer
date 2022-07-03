@@ -17,7 +17,6 @@
 		BCD3015B2870CE9800D9C880 /* UIView + Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3015A2870CE9800D9C880 /* UIView + Constraints.swift */; };
 		BCD3015D2870D14100D9C880 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3015C2870D14100D9C880 /* GradientButton.swift */; };
 		BCD3015F2870D17C00D9C880 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3015E2870D17C00D9C880 /* UIColor.swift */; };
-		BCD301612870D37800D9C880 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301602870D37800D9C880 /* Time.swift */; };
 		BCD301632870DC4000D9C880 /* UILabel + TimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301622870DC4000D9C880 /* UILabel + TimeLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		BCD3015A2870CE9800D9C880 /* UIView + Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Constraints.swift"; sourceTree = "<group>"; };
 		BCD3015C2870D14100D9C880 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		BCD3015E2870D17C00D9C880 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		BCD301602870D37800D9C880 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		BCD301622870DC4000D9C880 /* UILabel + TimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + TimeLabel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +47,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC8EB1482871E50C001E0A3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCD301572870CDED00D9C880 /* TimerStackView.swift */,
+				BCD3015C2870D14100D9C880 /* GradientButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC8EB1492871E51C001E0A3B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCD301432870CB3400D9C880 /* AppDelegate.swift */,
+				BCD301452870CB3400D9C880 /* SceneDelegate.swift */,
+				BC8EB146287195D7001E0A3B /* Constants.swift */,
+				BCD3014C2870CB3800D9C880 /* Assets.xcassets */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		BC8EB14A2871E542001E0A3B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BCD301472870CB3400D9C880 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		BCD301372870CB3400D9C880 = {
 			isa = PBXGroup;
 			children = (
@@ -68,17 +94,12 @@
 		BCD301422870CB3400D9C880 /* Countdown timer */ = {
 			isa = PBXGroup;
 			children = (
+				BC8EB14A2871E542001E0A3B /* Controllers */,
+				BC8EB1492871E51C001E0A3B /* Support Files */,
+				BC8EB1482871E50C001E0A3B /* Views */,
 				BCD301592870CE6500D9C880 /* Exstensions */,
-				BCD301432870CB3400D9C880 /* AppDelegate.swift */,
-				BCD301452870CB3400D9C880 /* SceneDelegate.swift */,
-				BCD301472870CB3400D9C880 /* MainViewController.swift */,
-				BCD3014C2870CB3800D9C880 /* Assets.xcassets */,
 				BCD3014E2870CB3800D9C880 /* LaunchScreen.storyboard */,
 				BCD301512870CB3800D9C880 /* Info.plist */,
-				BCD301572870CDED00D9C880 /* TimerStackView.swift */,
-				BCD3015C2870D14100D9C880 /* GradientButton.swift */,
-				BCD301602870D37800D9C880 /* Time.swift */,
-				BC8EB146287195D7001E0A3B /* Constants.swift */,
 			);
 			path = "Countdown timer";
 			sourceTree = "<group>";
@@ -167,7 +188,6 @@
 				BCD3015F2870D17C00D9C880 /* UIColor.swift in Sources */,
 				BCD3015D2870D14100D9C880 /* GradientButton.swift in Sources */,
 				BCD301582870CDED00D9C880 /* TimerStackView.swift in Sources */,
-				BCD301612870D37800D9C880 /* Time.swift in Sources */,
 				BC8EB147287195D7001E0A3B /* Constants.swift in Sources */,
 				BCD3015B2870CE9800D9C880 /* UIView + Constraints.swift in Sources */,
 				BCD301442870CB3400D9C880 /* AppDelegate.swift in Sources */,

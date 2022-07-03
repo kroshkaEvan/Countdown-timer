@@ -11,7 +11,3 @@ enum TimeFormat {
     case day, hour, minute, second
 }
 
-enum AnimationDirection: Int {
-    case positive = 1
-    case negative = -1
-}

@@ -75,7 +75,7 @@ class TimerStackView: UIStackView {
         return timer
     }()
     
-    private var seconds = 86400
+    private var allTime = 86400
     private var isTimerRunning = false
     private var index = 1
     
@@ -108,24 +108,30 @@ class TimerStackView: UIStackView {
                                           userInfo: nil,
                                           repeats: true)
     }
+    
+    private func getInt(time: Int) -> (Int, Int, Int, Int) {
+        return  (time / (3600 * 24),
+                (time / 3600),
+                (time % 3600) / 60,
+                (time % 3600) % 60)
+    }
         
     @objc func run() {
-        if seconds < 1 {
+        if allTime < 1 {
             timer.invalidate()
         } else {
-            seconds -= 1
-            let timeInterval = TimeInterval(seconds)
-            dayLabel.getTimeString(time: timeInterval,
-                                   timeFormat: .day)
-            hourLabel.getTimeString(time: timeInterval,
-                                    timeFormat: .hour)
-            minuteLabel.getTimeString(time: timeInterval,
-                                      timeFormat: .minute)
-            secondLabel.getTimeString(time: timeInterval,
-                                      timeFormat: .second)
-            //            guard let text = secondLabel.text else {return}
-            //            addCubeAnimation(label: secondLabel, text: text, direction: .negative)
-//                        secondLabel.addCubeAnimation(direction: .negative)
+            allTime -= 1
+            let timeInterval = getInt(time: allTime)
+            
+            dayLabel.addCubeAnimation(time: timeInterval.0)
+            hourLabel.addCubeAnimation(time: timeInterval.1)
+            minuteLabel.addCubeAnimation(time: timeInterval.2)
+            secondLabel.addCubeAnimation(time: timeInterval.3)
+
+            dayLabel.getTimeString(time: timeInterval.0)
+            hourLabel.getTimeString(time: timeInterval.1)
+            minuteLabel.getTimeString(time: timeInterval.2)
+            secondLabel.getTimeString(time: timeInterval.3)
         }
     }
 }
