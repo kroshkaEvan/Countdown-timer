@@ -43,7 +43,7 @@ class TimerStackView: UIStackView {
         view.layer.cornerRadius = 10
         view.heightAnchor.constraint(equalToConstant: 41).isActive = true
         view.layer.masksToBounds = true
-        view.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        view.widthAnchor.constraint(equalToConstant: 65).isActive = true
         view.addSubview(label)
         label.centerInSuperview(size: .init(width: 55, height: 38))
         return view
@@ -98,7 +98,6 @@ class TimerStackView: UIStackView {
             insertArrangedSubview(view, at: index)
             index += 2
         }
-        
         distribution = .equalSpacing
     }
     

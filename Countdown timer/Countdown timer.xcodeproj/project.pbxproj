@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC8EB147287195D7001E0A3B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EB146287195D7001E0A3B /* Constants.swift */; };
 		BCD301442870CB3400D9C880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301432870CB3400D9C880 /* AppDelegate.swift */; };
 		BCD301462870CB3400D9C880 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301452870CB3400D9C880 /* SceneDelegate.swift */; };
 		BCD301482870CB3400D9C880 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301472870CB3400D9C880 /* MainViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC8EB146287195D7001E0A3B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BCD301402870CB3400D9C880 /* Countdown timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Countdown timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD301432870CB3400D9C880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD301452870CB3400D9C880 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				BCD301572870CDED00D9C880 /* TimerStackView.swift */,
 				BCD3015C2870D14100D9C880 /* GradientButton.swift */,
 				BCD301602870D37800D9C880 /* Time.swift */,
+				BC8EB146287195D7001E0A3B /* Constants.swift */,
 			);
 			path = "Countdown timer";
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				BCD3015D2870D14100D9C880 /* GradientButton.swift in Sources */,
 				BCD301582870CDED00D9C880 /* TimerStackView.swift in Sources */,
 				BCD301612870D37800D9C880 /* Time.swift in Sources */,
+				BC8EB147287195D7001E0A3B /* Constants.swift in Sources */,
 				BCD3015B2870CE9800D9C880 /* UIView + Constraints.swift in Sources */,
 				BCD301442870CB3400D9C880 /* AppDelegate.swift in Sources */,
 				BCD301632870DC4000D9C880 /* UILabel + TimeLabel.swift in Sources */,
