@@ -35,20 +35,8 @@ class GradientButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         backgroundColor = nil
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
-        gradientLayer.colors = gradientColors.map { $0.cgColor }
-        gradientLayer.startPoint = startPoint
-        gradientLayer.endPoint = endPoint
-        gradientLayer.cornerRadius = cornerRadius
-        layer.insertSublayer(gradientLayer, at: 0)
-        
-        layer.shadowColor = shadowColor.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 3)
-        layer.shadowRadius = cornerRadius
-        layer.shadowOpacity = 2.0
-        layer.cornerRadius = cornerRadius
+        addGradienLayer()
+        addShadow()
     }
     
     override var isHighlighted: Bool {
@@ -61,5 +49,23 @@ class GradientButton: UIButton {
                 self.transform = transformation
             }
         }
+    }
+    
+    private func addGradienLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = gradientColors.map { $0.cgColor }
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+        gradientLayer.cornerRadius = cornerRadius
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    private func addShadow() {
+        layer.shadowColor = shadowColor.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 3)
+        layer.shadowRadius = cornerRadius
+        layer.shadowOpacity = 2.0
+        layer.cornerRadius = cornerRadius
     }
 }
