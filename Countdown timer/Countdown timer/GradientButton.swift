@@ -7,9 +7,6 @@
 
 import UIKit
 
-let blueButtonColor = UIColor.rgb(red: 65, green: 69, blue: 152)
-let pinkButtonColor = UIColor.rgb(red: 234, green: 72, blue: 187)
-
 class GradientButton: UIButton {
     let gradientColors: [UIColor]
     let shadowColor: UIColor
@@ -17,8 +14,9 @@ class GradientButton: UIButton {
     let startPoint: CGPoint
     let endPoint: CGPoint
 
-    required init(gradientColors: [UIColor] = [blueButtonColor, pinkButtonColor],
-                  shadowColor: UIColor = pinkButtonColor,
+    required init(gradientColors: [UIColor] = [Constants.Color.blueButtonColor,
+                                               Constants.Color.pinkButtonColor],
+                  shadowColor: UIColor = Constants.Color.pinkButtonColor,
                   cornerRadius: CGFloat = 12,
                   startPoint: CGPoint = CGPoint(x: 0, y: 0),
                   endPoint: CGPoint = CGPoint(x: 0, y: 1)) {

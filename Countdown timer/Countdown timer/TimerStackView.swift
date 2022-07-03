@@ -39,7 +39,7 @@ class TimerStackView: UIStackView {
     
     private lazy var labelSubviews = [dayLabel, hourLabel, minuteLabel, secondLabel].map { (label) -> UIView in
         let view = UIView()
-        view.backgroundColor = .darkGray
+        view.backgroundColor = Constants.Color.grayTimerViewColor
         view.layer.cornerRadius = 10
         view.heightAnchor.constraint(equalToConstant: 41).isActive = true
         view.layer.masksToBounds = true
