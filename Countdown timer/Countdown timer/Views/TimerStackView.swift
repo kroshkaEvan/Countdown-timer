@@ -74,11 +74,7 @@ class TimerStackView: UIStackView {
         let timer = Timer()
         return timer
     }()
-    
-    private var allTime = 86400
-    private var isTimerRunning = false
-    private var index = 1
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         startTimer()
@@ -90,6 +86,8 @@ class TimerStackView: UIStackView {
     }
     
     private func setupStackViewLayout() {
+        var index = 1
+
         labelSubviews.forEach { view in
             addArrangedSubview(view)
         }
@@ -108,30 +106,22 @@ class TimerStackView: UIStackView {
                                           userInfo: nil,
                                           repeats: true)
     }
-    
-    private func getInt(time: Int) -> (Int, Int, Int, Int) {
-        return  (time / (3600 * 24),
-                (time / 3600),
-                (time % 3600) / 60,
-                (time % 3600) % 60)
-    }
         
     @objc func run() {
-        if allTime < 1 {
+        if TimerTime.allTime < 1 {
             timer.invalidate()
         } else {
-            allTime -= 1
-            let timeInterval = getInt(time: allTime)
+            TimerTime.startTimer()
             
-            dayLabel.addCubeAnimation(time: timeInterval.0)
-            hourLabel.addCubeAnimation(time: timeInterval.1)
-            minuteLabel.addCubeAnimation(time: timeInterval.2)
-            secondLabel.addCubeAnimation(time: timeInterval.3)
+            dayLabel.addCubeAnimation(time: TimerTime.getTimeIntDay())
+            hourLabel.addCubeAnimation(time: TimerTime.getTimeIntHours())
+            minuteLabel.addCubeAnimation(time: TimerTime.getTimeIntMinutes())
+            secondLabel.addCubeAnimation(time: TimerTime.getTimeIntSeconds())
 
-            dayLabel.getTimeString(time: timeInterval.0)
-            hourLabel.getTimeString(time: timeInterval.1)
-            minuteLabel.getTimeString(time: timeInterval.2)
-            secondLabel.getTimeString(time: timeInterval.3)
+            dayLabel.getTimeString(time: TimerTime.getTimeIntDay())
+            hourLabel.getTimeString(time: TimerTime.getTimeIntHours())
+            minuteLabel.getTimeString(time: TimerTime.getTimeIntMinutes())
+            secondLabel.getTimeString(time: TimerTime.getTimeIntSeconds())
         }
     }
 }

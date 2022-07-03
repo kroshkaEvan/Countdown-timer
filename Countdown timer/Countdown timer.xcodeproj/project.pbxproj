@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC8EB147287195D7001E0A3B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EB146287195D7001E0A3B /* Constants.swift */; };
+		BC8EB14E28720B47001E0A3B /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EB14D28720B47001E0A3B /* Time.swift */; };
 		BCD301442870CB3400D9C880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301432870CB3400D9C880 /* AppDelegate.swift */; };
 		BCD301462870CB3400D9C880 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301452870CB3400D9C880 /* SceneDelegate.swift */; };
 		BCD301482870CB3400D9C880 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD301472870CB3400D9C880 /* MainViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		BC8EB146287195D7001E0A3B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC8EB14D28720B47001E0A3B /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		BCD301402870CB3400D9C880 /* Countdown timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Countdown timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD301432870CB3400D9C880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD301452870CB3400D9C880 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		BC8EB14B28720B2F001E0A3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC8EB14D28720B47001E0A3B /* Time.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BCD301372870CB3400D9C880 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		BCD301422870CB3400D9C880 /* Countdown timer */ = {
 			isa = PBXGroup;
 			children = (
+				BC8EB14B28720B2F001E0A3B /* Models */,
 				BC8EB14A2871E542001E0A3B /* Controllers */,
 				BC8EB1492871E51C001E0A3B /* Support Files */,
 				BC8EB1482871E50C001E0A3B /* Views */,
@@ -186,6 +197,7 @@
 			files = (
 				BCD301482870CB3400D9C880 /* MainViewController.swift in Sources */,
 				BCD3015F2870D17C00D9C880 /* UIColor.swift in Sources */,
+				BC8EB14E28720B47001E0A3B /* Time.swift in Sources */,
 				BCD3015D2870D14100D9C880 /* GradientButton.swift in Sources */,
 				BCD301582870CDED00D9C880 /* TimerStackView.swift in Sources */,
 				BC8EB147287195D7001E0A3B /* Constants.swift in Sources */,

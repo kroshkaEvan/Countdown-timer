@@ -22,12 +22,12 @@ extension UILabel {
     
     func addCubeAnimation(time: Int) {
         if text !=  String(format: "%02i", time) {
-            let animation = CATransition()
-            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-            animation.type = CATransitionType.push
-            animation.subtype = CATransitionSubtype.fromBottom
-            animation.duration = 0.7
-            layer.add(animation, forKey: CATransitionType.push.rawValue)
+            let animationTransition = CATransition()
+            animationTransition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+            animationTransition.type = CATransitionType.push
+            animationTransition.subtype = CATransitionSubtype.fromBottom
+            animationTransition.duration = 0.7
+            layer.add(animationTransition, forKey: CATransitionType.push.rawValue)
         }
     }
 }
