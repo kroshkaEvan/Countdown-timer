@@ -12,26 +12,26 @@ class MainViewController: UIViewController {
     private lazy var appleMusicImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "music")
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
     private lazy var offerLabel: UILabel = {
         let label = UILabel()
         let attributedText = NSMutableAttributedString(string: "LAST MINUTE CHANCE! \nto claim your offer",
-                                                       attributes: [.font: UIFont.systemFont(ofSize: 22,
+                                                       attributes: [.font: UIFont.systemFont(ofSize: Size.getFontSize(22),
                                                                                              weight: .semibold)])
         attributedText.append(NSAttributedString(string: "\n ",
-                                                 attributes: [.font: UIFont.systemFont(ofSize: 12,
+                                                 attributes: [.font: UIFont.systemFont(ofSize: Size.getProportionSizeHeight(12),
                                                                                        weight: .regular)]))
         attributedText.append(NSAttributedString(string: "\n90% OFF",
-                                                 attributes: [.font: UIFont.systemFont(ofSize: 55,
+                                                 attributes: [.font: UIFont.systemFont(ofSize: Size.getFontSize(55),
                                                                                        weight: .black)]))
         attributedText.append(NSAttributedString(string: "\n ",
-                                                 attributes: [.font: UIFont.systemFont(ofSize: 8,
+                                                 attributes: [.font: UIFont.systemFont(ofSize: Size.getProportionSizeHeight(8),
                                                                                        weight: .regular)]))
         attributedText.append(NSAttributedString(string: "\nFor true music fans",
-                                                 attributes: [.font: UIFont.systemFont(ofSize: 15,
+                                                 attributes: [.font: UIFont.systemFont(ofSize: Size.getFontSize(15),
                                                                                        weight: .semibold)]))
         label.attributedText = attributedText
         label.textColor = .white
@@ -47,6 +47,7 @@ class MainViewController: UIViewController {
         label.text = "Hundreds of songs in your pocket"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .lightGray
+        label.alpha = 0.9
         return label
     }()
     
@@ -84,28 +85,30 @@ class MainViewController: UIViewController {
                                leading: view.safeAreaLayoutGuide.leadingAnchor,
                                bottom: nil,
                                trailing: nil,
-                               padding: .init(top: 0, left: 35,
+                               padding: .init(top: 0, left: 0,
                                               bottom: 0, right: 0),
-                               size: .init(width: 310, height: 200))
+                               size: .init(width: view.frame.width / 2,
+                                           height: view.frame.height / 1.5))
         offerLabel.anchor(top: view.topAnchor,
                           leading: nil,
                           bottom: nil,
                           trailing: nil,
                           padding: .init(top: 0, left: 0,
-                                         bottom: 0, right: 20))
+                                         bottom: 0, right: 0))
         timerStackView.anchor(top: offerLabel.bottomAnchor,
                               leading: nil,
                               bottom: nil,
                               trailing: nil,
-                              padding: .init(top: 20, left: 0,
+                              padding: .init(top: Size.getProportionSizeHeight(20), left: 0,
                                              bottom: 0, right: 0),
-                              size: .init(width: 290, height: 41))
+                              size: .init(width: Size.getProportionSizeWidth(290),
+                                          height: Size.getProportionSizeHeight(41)))
         hundredsSongsLabel.anchor(top: timerStackView.bottomAnchor,
                                   leading: nil,
                                   bottom: nil,
                                   trailing: nil,
-                                  padding: .init(top: 16, left: 0,
-                                                 bottom: 0, right: 20))
+                                  padding: .init(top: Size.getProportionSizeHeight(16), left: 0,
+                                                 bottom: 0, right: 0))
         [timerStackView, offerLabel, hundredsSongsLabel, privacyLabel].forEach { view in
             view.centerXAnchor.constraint(equalTo: activateButton.centerXAnchor).isActive = true
         }
@@ -113,15 +116,16 @@ class MainViewController: UIViewController {
                               leading: nil,
                               bottom: nil,
                               trailing: view.safeAreaLayoutGuide.trailingAnchor,
-                              padding: .init(top: 10, left: 0,
-                                             bottom: 0, right: 20),
-                              size: .init(width: 300, height: 63))
+                              padding: .init(top: Size.getProportionSizeHeight(10), left: 0,
+                                             bottom: 0, right: Size.getPaddingToSafeArea(20)),
+                              size: .init(width: Size.getProportionSizeWidth(300),
+                                          height: Size.getProportionSizeHeight(63)))
         privacyLabel.anchor(top: nil,
                             leading: nil,
                             bottom: view.bottomAnchor,
                             trailing: nil,
                             padding: .init(top: 0, left: 0,
-                                           bottom: 30, right: 20))
+                                           bottom: Size.getProportionSizeHeight(20), right: 0))
     }
     
     private func getStopedTimeString() -> String {
@@ -154,4 +158,3 @@ class MainViewController: UIViewController {
         alertView.timeActivatedLabel.text = "Offer activated at \(self.getStopedTimeString())"
     }
 }
-

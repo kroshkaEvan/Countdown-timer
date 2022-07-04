@@ -28,7 +28,7 @@ class AlertView: UIView {
     }()
     
     private lazy var blurEffectView: UIVisualEffectView = {
-        let blurEffect = UIBlurEffect(style: .systemChromeMaterial)
+        let blurEffect = UIBlurEffect(style: .systemChromeMaterialDark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0.65
         return blurEffectView

@@ -64,7 +64,7 @@ class GradientButton: UIButton {
     private func addShadow() {
         layer.shadowColor = shadowColor.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 3)
-        layer.shadowRadius = cornerRadius
+        layer.shadowRadius = cornerRadius * 2
         layer.shadowOpacity = 2.0
         layer.cornerRadius = cornerRadius
     }

@@ -41,9 +41,8 @@ class TimerStackView: UIStackView {
         let view = UIView()
         view.backgroundColor = Constants.Color.grayTimerViewColor
         view.layer.cornerRadius = 10
-        view.heightAnchor.constraint(equalToConstant: 41).isActive = true
         view.layer.masksToBounds = true
-        view.widthAnchor.constraint(equalToConstant: 65).isActive = true
+        view.widthAnchor.constraint(equalToConstant: Size.getProportionSizeWidth(65)).isActive = true
         view.addSubview(label)
         label.centerInSuperview(size: .init(width: 55, height: 38))
         return view
