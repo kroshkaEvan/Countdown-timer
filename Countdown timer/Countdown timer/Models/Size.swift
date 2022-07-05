@@ -10,16 +10,19 @@ import UIKit
 class Size {
     static let height = UIScreen.main.bounds.height
     static let width = UIScreen.main.bounds.width
+    
     static let heightIphone13: CGFloat = 390.0
     static let widthIphone13: CGFloat = 844.0
     static let heightIphoneSE: CGFloat = 320.0
     static let widthIphoneSE: CGFloat = 568.0
     
-    static func getProportionSizeHeight(_ size: CGFloat) -> CGFloat {
+    static var widthTimerCell: CGFloat = Size.getResizableWidth(65)
+    
+    static func getResizableHeight(_ size: CGFloat) -> CGFloat {
         return height * size / heightIphone13
     }
     
-    static func getProportionSizeWidth(_ size: CGFloat) -> CGFloat {
+    static func getResizableWidth(_ size: CGFloat) -> CGFloat {
         if width == widthIphoneSE {
             return width * size / (widthIphone13 * CGFloat(0.8))
         } else {

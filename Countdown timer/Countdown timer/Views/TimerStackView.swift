@@ -40,9 +40,9 @@ class TimerStackView: UIStackView {
     private lazy var labelSubviews = [dayLabel, hourLabel, minuteLabel, secondLabel].map { (label) -> UIView in
         let view = UIView()
         view.backgroundColor = Constants.Color.grayTimerViewColor
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
-        view.widthAnchor.constraint(equalToConstant: Size.getProportionSizeWidth(65)).isActive = true
+        view.widthAnchor.constraint(equalToConstant: Size.widthTimerCell).isActive = true
         view.addSubview(label)
         label.centerInSuperview(size: .init(width: 55, height: 38))
         return view
@@ -101,12 +101,16 @@ class TimerStackView: UIStackView {
     private func startTimer() {
         self.timer = Timer.scheduledTimer(timeInterval: 1,
                                           target: self,
-                                          selector: (#selector(run)),
+                                          selector: (#selector(runTime)),
                                           userInfo: nil,
                                           repeats: true)
     }
     
-    @objc func run() {
+    func stopTimer() {
+        timer.invalidate()
+    }
+    
+    @objc func runTime() {
         if TimerTime.allTime < 1 {
             timer.invalidate()
         } else {

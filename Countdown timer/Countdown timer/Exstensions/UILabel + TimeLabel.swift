@@ -12,7 +12,7 @@ extension UILabel {
     func addTimeLabel() {
         backgroundColor = .clear
         textColor = .white
-        font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        font = Constants.Font.timerFont
         textAlignment = .center
     }
     

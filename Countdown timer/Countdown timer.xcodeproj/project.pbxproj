@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC13CE5628749781005AFBA4 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13CE5528749781005AFBA4 /* Device.swift */; };
 		BC48813D2872ED96002DD057 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48813C2872ED96002DD057 /* Size.swift */; };
 		BC8EB147287195D7001E0A3B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EB146287195D7001E0A3B /* Constants.swift */; };
 		BC8EB14E28720B47001E0A3B /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8EB14D28720B47001E0A3B /* Time.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC13CE5528749781005AFBA4 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		BC48813C2872ED96002DD057 /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		BC8EB146287195D7001E0A3B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC8EB14D28720B47001E0A3B /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				BC8EB14D28720B47001E0A3B /* Time.swift */,
 				BC48813C2872ED96002DD057 /* Size.swift */,
+				BC13CE5528749781005AFBA4 /* Device.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC13CE5628749781005AFBA4 /* Device.swift in Sources */,
 				BCD301482870CB3400D9C880 /* MainViewController.swift in Sources */,
 				BCD3015F2870D17C00D9C880 /* UIColor.swift in Sources */,
 				BC8EB14E28720B47001E0A3B /* Time.swift in Sources */,
