@@ -119,8 +119,8 @@ class MainViewController: UIViewController {
                            trailing: nil,
                            padding: .init(top: 10, left: 10,
                                           bottom: 0, right: 0),
-                           size: .init(width: 41,
-                                       height: 41))
+                           size: .init(width: 44,
+                                       height: 44))
         offerLabel.anchor(top: view.topAnchor,
                           leading: nil,
                           bottom: nil,
@@ -181,8 +181,8 @@ class MainViewController: UIViewController {
                            trailing: nil,
                            padding: .init(top: 10, left: 10,
                                           bottom: 0, right: 0),
-                           size: .init(width: 41,
-                                       height: 41))
+                           size: .init(width: 44,
+                                       height: 44))
         offerLabel.anchor(top: nil,
                           leading: nil,
                           bottom: appleMusicImage.centerYAnchor,
