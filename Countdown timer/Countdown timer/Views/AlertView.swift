@@ -8,6 +8,9 @@
 import UIKit
 
 class AlertView: UIView {
+    
+    // MARK: - Private Properties
+    
     private lazy var activatedView: UIView = {
         let view = UIView()
         view.backgroundColor = Constants.Color.blueAlertViewColor
@@ -27,6 +30,8 @@ class AlertView: UIView {
         return label
     }()
     
+    // MARK: - Public Properties
+    
     lazy var blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .systemChromeMaterialDark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -42,6 +47,8 @@ class AlertView: UIView {
         return label
     }()
     
+    // MARK: - Initializers
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -50,6 +57,8 @@ class AlertView: UIView {
         super.init(frame: .zero)
         setupViewLayout()
     }
+    
+    // MARK: - Private Methods
     
     private func setupViewLayout() {
         self.addSubview(blurEffectView)

@@ -9,6 +9,8 @@ import UIKit
 
 class TimerStackView: UIStackView {
     
+    // MARK: - Public Properties
+    
     lazy var dayLabel: UILabel = {
         let label = UILabel()
         label.text = "01"
@@ -36,6 +38,13 @@ class TimerStackView: UIStackView {
         label.addTimeLabel()
         return label
     }()
+    
+    lazy var timer: Timer = {
+        let timer = Timer()
+        return timer
+    }()
+    
+    // MARK: - Private Properties
     
     private lazy var labelSubviews = [dayLabel, hourLabel, minuteLabel, secondLabel].map { (label) -> UIView in
         let view = UIView()
@@ -69,10 +78,7 @@ class TimerStackView: UIStackView {
         return label
     }()
     
-    lazy var timer: Timer = {
-        let timer = Timer()
-        return timer
-    }()
+    // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,6 +90,8 @@ class TimerStackView: UIStackView {
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private Methods
     
     private func setupStackViewLayout() {
         var index = 1
@@ -106,6 +114,8 @@ class TimerStackView: UIStackView {
                                           userInfo: nil,
                                           repeats: true)
     }
+    
+    // MARK: - Public Methods
     
     func stopTimer() {
         timer.invalidate()

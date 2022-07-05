@@ -8,7 +8,12 @@
 import Foundation
 
 class TimerTime {
+    
+    // MARK: - Public Properties
+
     static var allTime: Int = 86400
+    
+    // MARK: - Public Methods
     
     static func startTimer() {
         allTime -= 1

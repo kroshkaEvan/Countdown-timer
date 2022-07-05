@@ -8,6 +8,9 @@
 import Foundation
 
 struct Device {
+    
+    // MARK: - Public Properties
+    
     static let shared = Device()
     
     let iPads: [String] = ["iPad (6th generation)", "iPad (7th generation)", "iPad (8th generation)", "iPad (9th generation)",

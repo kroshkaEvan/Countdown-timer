@@ -9,6 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    // MARK: - Private properties
+    
     private lazy var appleMusicImage: UIImageView = {
         let image = UIImageView()
         image.image = Constants.Image.music
@@ -73,6 +75,8 @@ class MainViewController: UIViewController {
     
     private lazy var alertView = AlertView()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activateButton.addTarget(self,
@@ -80,6 +84,8 @@ class MainViewController: UIViewController {
                                  for: .touchUpInside)
         checkDevice()
     }
+    
+    // MARK: - Private methods
     
     private func checkDevice() {
         Device.shared.iPads.forEach { (iPad) in

@@ -8,11 +8,16 @@
 import UIKit
 
 class GradientButton: UIButton {
+    
+    // MARK: - Public Properties
+    
     let gradientColors: [UIColor]
     let shadowColor: UIColor
     let cornerRadius: CGFloat
     let startPoint: CGPoint
     let endPoint: CGPoint
+    
+    // MARK: - Initializers
     
     required init(gradientColors: [UIColor] = [Constants.Color.blueButtonColor,
                                                Constants.Color.pinkButtonColor],
@@ -50,6 +55,8 @@ class GradientButton: UIButton {
             }
         }
     }
+    
+    // MARK: - Private Methods
     
     private func addGradienLayer() {
         let gradientLayer = CAGradientLayer()

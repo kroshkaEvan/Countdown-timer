@@ -8,6 +8,9 @@
 import UIKit
 
 class Size {
+    
+    // MARK: - Public Properties
+    
     static let height = UIScreen.main.bounds.height
     static let width = UIScreen.main.bounds.width
     
@@ -17,6 +20,8 @@ class Size {
     static let widthIphoneSE: CGFloat = 568.0
     
     static var widthTimerCell: CGFloat = Size.getResizableWidth(65)
+    
+    // MARK: - Public Methods
     
     static func getResizableHeight(_ size: CGFloat) -> CGFloat {
         return height * size / heightIphone13
