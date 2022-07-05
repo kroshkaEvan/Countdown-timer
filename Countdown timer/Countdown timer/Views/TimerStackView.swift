@@ -77,6 +77,7 @@ class TimerStackView: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         startTimer()
+        checkAppStatus(true)
         setupStackViewLayout()
     }
     
@@ -126,6 +127,30 @@ class TimerStackView: UIStackView {
             minuteLabel.getTimeString(time: TimerTime.getTimeIntMinutes())
             secondLabel.getTimeString(time: TimerTime.getTimeIntSeconds())
         }
+    }
+    
+    func checkAppStatus(_ isCheck: Bool) {
+        let notificationCenter = NotificationCenter.default
+        if isCheck == true {
+            notificationCenter.addObserver(self,
+                                           selector: #selector(backgroundStatus(_:)),
+                                           name: UIApplication.didEnterBackgroundNotification,
+                                           object: nil)
+            notificationCenter.addObserver(self,
+                                           selector: #selector(foregroundStatus(_:)),
+                                           name: UIApplication.willEnterForegroundNotification,
+                                           object: nil)
+        } else {
+            notificationCenter.removeObserver(self)
+        }
+    }
+    
+    @objc private func foregroundStatus(_ notification: NotificationCenter) {
+        startTimer()
+    }
+    
+    @objc private func backgroundStatus(_ notification: NotificationCenter) {
+        stopTimer()
     }
 }
 

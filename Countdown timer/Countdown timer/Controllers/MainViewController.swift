@@ -108,13 +108,13 @@ class MainViewController: UIViewController {
                                size: .init(width: view.frame.width / 2,
                                            height: view.frame.height / 1.5))
         crossButton.anchor(top: view.topAnchor,
-                               leading: view.safeAreaLayoutGuide.leadingAnchor,
-                               bottom: nil,
-                               trailing: nil,
-                               padding: .init(top: 10, left: 10,
-                                              bottom: 0, right: 0),
-                               size: .init(width: 41,
-                                           height: 41))
+                           leading: view.safeAreaLayoutGuide.leadingAnchor,
+                           bottom: nil,
+                           trailing: nil,
+                           padding: .init(top: 10, left: 10,
+                                          bottom: 0, right: 0),
+                           size: .init(width: 41,
+                                       height: 41))
         offerLabel.anchor(top: view.topAnchor,
                           leading: nil,
                           bottom: nil,
@@ -130,11 +130,11 @@ class MainViewController: UIViewController {
                               size: .init(width: Size.getResizableWidth(290),
                                           height: Size.getResizableHeight(41)))
         numberSongsLabel.anchor(top: timerStackView.bottomAnchor,
-                                  leading: nil,
-                                  bottom: nil,
-                                  trailing: nil,
-                                  padding: .init(top: Size.getResizableHeight(16), left: 0,
-                                                 bottom: 0, right: 0))
+                                leading: nil,
+                                bottom: nil,
+                                trailing: nil,
+                                padding: .init(top: Size.getResizableHeight(16), left: 0,
+                                               bottom: 0, right: 0))
         [timerStackView, offerLabel, numberSongsLabel, privacyLabel].forEach { view in
             view.centerXAnchor.constraint(equalTo: activateButton.centerXAnchor).isActive = true
         }
@@ -170,13 +170,13 @@ class MainViewController: UIViewController {
                                size: .init(width: view.frame.width / 2,
                                            height: view.frame.height / 1.5))
         crossButton.anchor(top: view.topAnchor,
-                               leading: view.safeAreaLayoutGuide.leadingAnchor,
-                               bottom: nil,
-                               trailing: nil,
-                               padding: .init(top: 10, left: 10,
-                                              bottom: 0, right: 0),
-                               size: .init(width: 41,
-                                           height: 41))
+                           leading: view.safeAreaLayoutGuide.leadingAnchor,
+                           bottom: nil,
+                           trailing: nil,
+                           padding: .init(top: 10, left: 10,
+                                          bottom: 0, right: 0),
+                           size: .init(width: 41,
+                                       height: 41))
         offerLabel.anchor(top: nil,
                           leading: nil,
                           bottom: appleMusicImage.centerYAnchor,
@@ -192,11 +192,11 @@ class MainViewController: UIViewController {
                               size: .init(width: 400,
                                           height: 57))
         numberSongsLabel.anchor(top: timerStackView.bottomAnchor,
-                                  leading: nil,
-                                  bottom: nil,
-                                  trailing: nil,
-                                  padding: .init(top: 45, left: 0,
-                                                 bottom: 0, right: 0))
+                                leading: nil,
+                                bottom: nil,
+                                trailing: nil,
+                                padding: .init(top: 45, left: 0,
+                                               bottom: 0, right: 0))
         [timerStackView, offerLabel, numberSongsLabel, privacyLabel].forEach { view in
             view.centerXAnchor.constraint(equalTo: activateButton.centerXAnchor).isActive = true
         }
@@ -236,7 +236,7 @@ class MainViewController: UIViewController {
         Constants.Font.timerFont = UIFont.systemFont(ofSize: 23,
                                                      weight: .bold)
     }
-
+    
     private func getStopedTimeString() -> String {
         let zeroLabel = "00"
         let colonLabel = ":"
@@ -262,6 +262,7 @@ class MainViewController: UIViewController {
     
     @objc func didTapStopTimer() {
         timerStackView.stopTimer()
+        timerStackView.checkAppStatus(false)
         view.addSubview(alertView)
         alertView.fillSuperview()
         alertView.timeActivatedLabel.text = "Offer activated at \(self.getStopedTimeString())"
