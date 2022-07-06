@@ -7,9 +7,6 @@ iPhone 13
 
 https://user-images.githubusercontent.com/95620294/177630416-904cc536-6c4c-48a9-afb7-595a1e8cd5fb.mov
 
-//. //. //. //
-
-
-https://user-images.githubusercontent.com/95620294/177630957-cad11c91-2e0c-49e2-968e-6da2c61f34d3.mp4
+[Technical Task.pdf](https://github.com/kroshkaEvan/Countdown-timer/files/9057628/Technical.Task.pdf)
 
 
